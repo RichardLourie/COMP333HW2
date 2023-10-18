@@ -1,5 +1,5 @@
 
-<!-- 
+<!--
 include 'dbconnection.php';
 $userid = $_POST['userid'];
 $password = $_POST['password'];
@@ -48,7 +48,7 @@ if ($num > 0) {
     if (password_verify($password, $hashedPassword)) {
         // Passwords match, so it's a successful login.
         echo "Login Success";
-        echo '<br /><a href="ratingsPage.html">Proceed</a>';
+        echo '<br /><a href="ratingsPage.php">Proceed</a>';
     } else {
         // Passwords do not match.
         echo "Wrong User id or password";
