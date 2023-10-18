@@ -1,3 +1,5 @@
 ###bespoke gitignore file###
 #ignore tutorial files
 .backend-apis-databases-tutorial/
+
+.DS_Store/
