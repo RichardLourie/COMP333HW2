@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           // Start a session and store the username for authentication.
           session_start();
           $_SESSION['user'] = $username;
-          header('Location: main.php'); // Redirect to the main page after successful login.
+          header('Location: ratingsPage.html'); // Redirect to the main page after successful login.
       } else {
           $loginError = "Invalid username or password. Please try again.";
       }
