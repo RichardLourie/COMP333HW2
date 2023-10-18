@@ -12,7 +12,7 @@ body {
     height: 100vh;
 }
 
-.login-box {
+.login-box, .signup-box {
     background-color: #fff;
     padding: 20px;
     border: 1px solid #ccc;
@@ -49,7 +49,7 @@ input[type="password"] {
     margin-top: 5px;
 }
 
-input[type="submit"] {
+input[type="submit"], input[type="reset"] {
     width: 100%;
     padding: 10px;
     margin-top: 15px;
