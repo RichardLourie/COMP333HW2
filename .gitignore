@@ -2,4 +2,4 @@
 #ignore tutorial files
 .backend-apis-databases-tutorial/
 
-.DS_Store/
+.DS_Store
