@@ -1,5 +1,5 @@
-<?php
 
+<!-- 
 include 'dbconnection.php';
 $userid = $_POST['userid'];
 $password = $_POST['password'];
@@ -23,8 +23,45 @@ if ($num > 0) {
 } else {
   echo "Wrong User id or password";
   echo '<br /><a href="index.html">retry</a>';
+} -->
+
+
+<?php
+
+include 'dbconnection.php';
+$userid = $_POST['userid'];
+$password = $_POST['password'];
+
+// Use a prepared statement to fetch the user's hashed password.
+$getUserQuery = "SELECT password FROM users WHERE username = ?";
+$stmt = mysqli_prepare($db, $getUserQuery);
+mysqli_stmt_bind_param($stmt, "s", $userid);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$num = mysqli_num_rows($result);
+
+if ($num > 0) {
+    // User with the entered username exists, now verify the password.
+    $row = mysqli_fetch_assoc($result);
+    $hashedPassword = $row['password'];
+
+    if (password_verify($password, $hashedPassword)) {
+        // Passwords match, so it's a successful login.
+        echo "Login Success";
+        echo '<br /><a href="ratingsPage.html">Proceed</a>';
+    } else {
+        // Passwords do not match.
+        echo "Wrong User id or password";
+        echo '<br /><a href="index.html">Retry</a>';
+    }
+} else {
+    // No user with the entered username found.
+    echo "User does not exist";
+    echo '<br /><a href="index.html">Retry</a>';
 }
 ?>
+
+
 <!-- old login
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
