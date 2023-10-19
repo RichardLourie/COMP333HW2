@@ -38,29 +38,6 @@ session_start();
     <h2 class="ratings-title">Song Ratings</h2>
 
     <a href="add_song_page.php" class="add-button">Add a New Song Rating</a>
-    <!--
-    <table class="song-ratings">
-      <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>Artist</th>
-        <th>Song</th>
-        <th>Rating</th>
-        <th>Action</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>JohnDoe</td>
-        <td>Artist 1</td>
-        <td>Song 1</td>
-        <td>4</td>
-        <td>
-          <a href="view_rating.php?id=1">View</a> |
-          <a href="update_rating.php?id=1">Update</a> |
-          <a href="delete_rating.php?id=1">Delete</a>
-        </td>
-      </tr>
-    -->
 
     </table>
 
@@ -85,8 +62,8 @@ session_start();
                         <td><?php echo htmlspecialchars($row['song']); ?></td>
                         <td><?php echo htmlspecialchars($row['rating']); ?></td>
                         <td><a href="view_rating.php?id=1">View</a></td>
-                        <td><a href="update_rating.php?id=1">Update</a></td>
-                        <td><a href="delete_rating.php?id=1">Delete</a></td>
+                        <td><a <?php if ($row['username'] == $_SESSION['username']):?> href="update_rating.php?id=1">Update</a> <?php endif; ?> </td>
+                        <td><a <?php if ($row['username'] == $_SESSION['username']):?> href="delete_rating.php?id=1">Delete</a> <?php endif; ?> </td>
                     </tr>
                 <?php endwhile; ?>
             <?php else: ?>
