@@ -62,7 +62,7 @@ session_start();
                         <td><?php echo htmlspecialchars($row['song']); ?></td>
                         <td><?php echo htmlspecialchars($row['rating']); ?></td>
                         <td><a href="view_rating.php?id=1">View</a></td>
-                        <td><a <?php if ($row['username'] == $_SESSION['username']):?> href="update_rating.php?id=1">Update</a> <?php endif; ?> </td>
+                        <td><a <?php if ($row['username'] == $_SESSION['username']): ?> href="update_rating.php?id=<?php echo htmlspecialchars($row['id']); ?>">Update</a> <?php endif; ?> </td>
                         <td><a <?php if ($row['username'] == $_SESSION['username']):?> href="delete_rating.php?id=1">Delete</a> <?php endif; ?> </td>
                     </tr>
                 <?php endwhile; ?>
