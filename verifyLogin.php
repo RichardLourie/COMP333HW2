@@ -28,6 +28,8 @@ if ($num > 0) {
 
 <?php
 
+session_start();
+
 include 'dbconnection.php';
 $userid = $_POST['userid'];
 $password = $_POST['password'];
@@ -48,6 +50,7 @@ if ($num > 0) {
     if (password_verify($password, $hashedPassword)) {
         // Passwords match, so it's a successful login.
         echo "Login Success";
+        $_SESSION['username']   = $userid;
         echo '<br /><a href="ratingsPage.php">Proceed</a>';
     } else {
         // Passwords do not match.

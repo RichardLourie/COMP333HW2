@@ -14,6 +14,8 @@ if ($conn->connect_error) {
 
 $query = "SELECT * FROM ratings";
 $result = $conn->query($query);
+
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +31,7 @@ $result = $conn->query($query);
     <h1 class="page-title">Welcome to Music DB</h1>
 
     <div class="user-info">
-      <p>You are logged in as user: <span class="username">USER</span></p>
+      <p>You are logged in as user: <span class="username"><?php echo $_SESSION['username'];?></span></p>
       <a href="logout.php" class="logout-button">Log Out</a>
     </div>
 
