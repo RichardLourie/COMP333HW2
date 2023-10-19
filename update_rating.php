@@ -79,6 +79,7 @@ mysqli_close($db);
             <input type="number" id="rating" name="rating" min="1" max="5" value="<?php echo htmlspecialchars($row['rating']); ?>" required>
         </div>
         <input type="submit" value="Update">
+        <a href="ratingsPage.php" class="back-link">Back to ratings page</a>
     </form>
     </div>
 </body>
