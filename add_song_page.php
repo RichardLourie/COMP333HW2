@@ -9,10 +9,6 @@
     <div id="form">
       <h1>Add a song!</h1>
       <form name="form" action="add_song.php" method="POST">
-  <p>
-    <label> Username: </label>
-    <input type="text" id="user" name="username" />
-  </p>
 
   <p>
     <label> Artist: </label>
