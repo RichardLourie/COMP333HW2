@@ -29,12 +29,6 @@ if (isset($_GET['id'])) {
         $song = $row['song'];
         $rating = $row['rating'];
 
-        // display the rating details in HTML here
-        echo "<h1 class='page-title'>Rating Details</h1>";
-        echo "<p><span class='label'>Username:</span> <span class='username'>" . htmlspecialchars($username) . "</span></p>";
-        echo "<p><span class='label'>Artist:</span> <span class='artist'>" . htmlspecialchars($artist) . "</span></p>";
-        echo "<p><span class='label'>Song:</span> <span class='song'>" . htmlspecialchars($song) . "</span></p>";
-        echo "<p><span class='label'>Rating:</span> <span class='rating'>" . htmlspecialchars($rating) . "</span></p>";
     } else {
         // Rating not found
         echo "Rating not found.";
@@ -61,7 +55,15 @@ mysqli_close($db);
 
 </head>
 <body>
-<!-- link back to ratings page -->
+<div id="form-container">
+    <?php
+    echo "<h1 class='page-title'>Rating Details</h1>";
+    echo "<p class = 'res'><span class='label'>Username:</span> <span class='username'>" . htmlspecialchars($username) . "</span></p>";
+    echo "<p class = 'res'><span class='label'>Artist:</span> <span class='artist'>" . htmlspecialchars($artist) . "</span></p>";
+    echo "<p class = 'res'><span class='label'>Song:</span> <span class='song'>" . htmlspecialchars($song) . "</span></p>";
+    echo "<p class = 'res'><span class='label'>Rating:</span> <span class='rating'>" . htmlspecialchars($rating) . "</span></p>";
+    ?>
     <a href="ratingsPage.php" class="back-link">Back to ratings page</a>
+</div>
 </body>
 </html>

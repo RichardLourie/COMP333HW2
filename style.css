@@ -13,6 +13,10 @@ body {
     height: 100vh;
 }
 
+.label {
+    font-weight: bold;
+}
+
 .login-box, .signup-box {
     background-color: #fff;
     padding: 20px;
@@ -29,12 +33,6 @@ h1 {
 
 h2 {
     color: #333;
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
 }
 
 
@@ -111,8 +109,22 @@ a:hover {
     background-color: #f2f2f2;
 }
 
+/* Center and style the song details */
+.username,
+.artist,
+.song,
+.rating {
+    /* display: block; Make these elements block-level for better styling */
+    text-align: center;
+    margin-top: 10px;
+}
+
 .song-ratings tr:nth-child(odd) {
     background-color: #fff;
+}
+
+.res {
+    text-align: center;
 }
 
 .page-title {
@@ -171,12 +183,16 @@ a:hover {
 
 /* Style the "Back to ratings page" link */
 .back-link {
+    text-decoration: none;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
     display: block;
     text-align: center;
-    margin-top: 20px;
-    color: #3498db;
-    text-decoration: none;
-    font-weight: bold;
+    margin: 20px auto;
+    width: 40%;
 }
 
 .back-link:hover {
