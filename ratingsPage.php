@@ -68,7 +68,7 @@ session_start();
                 <?php endwhile; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="2">No records found!</td>
+                    <td colspan="5">No records found!</td>
                 </tr>
             <?php endif; ?>
         </tbody>
