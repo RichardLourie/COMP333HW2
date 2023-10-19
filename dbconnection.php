@@ -1,3 +1,4 @@
+<!-- boilerplate db connection file -->
 <?php
 $db = mysqli_connect("localhost","root","","music_db");
 

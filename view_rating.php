@@ -1,3 +1,5 @@
+<!-- page to view the rating of a song -->
+
 <?php
 // Include the database connection file (dbconnection.php)
 session_start();
@@ -9,6 +11,7 @@ if (isset($_GET['id'])) {
     $ratingId = $_GET['id'];
 
     // Construct an SQL query to select the rating
+    // avoid sql injection with bind_param
     $query = "SELECT * FROM ratings WHERE id = ?";
     $stmt = mysqli_prepare($db, $query);
     mysqli_stmt_bind_param($stmt, "i", $ratingId);
@@ -26,12 +29,12 @@ if (isset($_GET['id'])) {
         $song = $row['song'];
         $rating = $row['rating'];
 
-        // You can display the rating details in HTML here
-        echo "<h1>Rating Details</h1>";
-        echo "<p>Username: " . htmlspecialchars($username) . "</p>";
-        echo "<p>Artist: " . htmlspecialchars($artist) . "</p>";
-        echo "<p>Song: " . htmlspecialchars($song) . "</p>";
-        echo "<p>Rating: " . htmlspecialchars($rating) . "</p>";
+        // display the rating details in HTML here
+        echo "<h1 class='page-title'>Rating Details</h1>";
+        echo "<p><span class='label'>Username:</span> <span class='username'>" . htmlspecialchars($username) . "</span></p>";
+        echo "<p><span class='label'>Artist:</span> <span class='artist'>" . htmlspecialchars($artist) . "</span></p>";
+        echo "<p><span class='label'>Song:</span> <span class='song'>" . htmlspecialchars($song) . "</span></p>";
+        echo "<p><span class='label'>Rating:</span> <span class='rating'>" . htmlspecialchars($rating) . "</span></p>";
     } else {
         // Rating not found
         echo "Rating not found.";
@@ -58,7 +61,7 @@ mysqli_close($db);
 
 </head>
 <body>
-
-    <a href="ratingsPage.php">Back to ratings page</a>
+<!-- link back to ratings page -->
+    <a href="ratingsPage.php" class="back-link">Back to ratings page</a>
 </body>
 </html>

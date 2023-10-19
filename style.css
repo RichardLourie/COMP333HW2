@@ -5,6 +5,7 @@ body {
     background-color: #f0f0f0;
 }
 
+/* login and signup boxes on index and signup pages */
 .container {
     display: flex;
     justify-content: center;
@@ -36,10 +37,23 @@ label {
     font-weight: bold;
 }
 
-.form-group {
-    margin-top: 10px;
-}
 
+#form-container {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 400px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Style the form elements */
+  .form-group {
+    margin: 10px 0;
+  }
+
+/* for various forms (login, signup, add song rating, update song rating) */
 input[type="text"],
 input[type="password"] {
     width: 80%;
@@ -48,6 +62,7 @@ input[type="password"] {
     border-radius: 5px;
     margin-top: 5px;
 }
+
 
 input[type="submit"], input[type="reset"] {
     width: 100%;
@@ -73,6 +88,7 @@ a:hover {
     text-decoration: underline;
 }
 
+/* for song ratings displayed from database */
 .song-ratings {
     border-collapse: separate;
     border-spacing: 10px;
@@ -99,8 +115,6 @@ a:hover {
     background-color: #fff;
 }
 
-/* Previous CSS styles */
-
 .page-title {
     text-align: center;
     font-size: 24px;
@@ -116,6 +130,7 @@ a:hover {
     font-weight: bold;
 }
 
+/* styling for logout button */
 .logout-button {
     background-color: #dc3545;
     color: #fff;
@@ -135,18 +150,35 @@ a:hover {
     margin-top: 20px;
 }
 
+/* styling for add rating button */
 .add-button {
-    display: block;
-    width: 200px;
-    text-align: center;
     background-color: #007BFF;
     color: #fff;
-    padding: 10px;
-    text-decoration: none;
+    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
-    margin: 20px auto;
+    font-weight: bold;
+    cursor: pointer;
+    display: block; /* Make it a block-level element to center it horizontally */
+    margin: 0 auto; /* Center the element horizontally */
+    width: 15%;
+    text-align: center;
 }
 
 .add-button:hover {
     background-color: #0056b3;
+}
+
+/* Style the "Back to ratings page" link */
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    color: #217dbb;
 }

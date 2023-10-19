@@ -1,3 +1,5 @@
+<!-- page to update song rating -->
+
 <?php
 // Include the database connection file (dbconnection.php)
 include 'dbconnection.php';
@@ -21,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mysqli_stmt_execute($stmt)) {
         // Update successful
         echo "Rating updated successfully.";
-        echo '<br /><a href="ratingsPage.php">Go back to main page</a>';
+        echo '<br /><a href="ratingsPage.php" class="back-link">Go back to main page</a>';
     } else {
         // Update failed
         echo "Error updating rating: " . mysqli_error($db);
@@ -59,8 +61,9 @@ mysqli_close($db);
       <p>You are logged in as user: <span class="username"><?php echo $_SESSION['username'];?></span></p>
       <a href="index.html" class="logout-button">Log Out</a>
     </div>
-
-    <h1>Update Rating</h1>
+    <!-- form for updating ratings autofilled with previous values -->
+    <div id="form-container">
+    <h1 class="page-title">Update Rating</h1>
     <form method="post" action="update_rating.php">
         <input type="hidden" name="rating_id" value="<?php echo htmlspecialchars($_GET['id']); ?>">
         <div class="form-group">
@@ -77,5 +80,6 @@ mysqli_close($db);
         </div>
         <input type="submit" value="Update">
     </form>
+    </div>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<!-- page displayed to confirm that a user wants to delete a song -->
 <?php
 session_start();
 
@@ -16,11 +17,13 @@ $id = $_GET['id'];
 </head>
 <body>
     <div class="user-info">
+        <!-- display current user -->
       <p>You are logged in as user: <span class="username"><?php echo $_SESSION['username'];?></span></p>
       <a href="index.html" class="logout-button">Log Out</a>
     </div>
+    <!-- confirm delete or back to ratings page -->
     <h2>Are you sure you want to delete this entry?</h2>
-    <a href="delete_rating.php?id=<?php echo $id; ?>">Yes</a>
-    <a href="ratingsPage.php">No</a> <!-- Adjust to the name of your main page if different. -->
+    <a href="delete_rating.php?id=<?php echo $id; ?>" class="back-link">Yes, delete this rating</a>
+    <a href="ratingsPage.php" class="back-link">Back to ratings page</a>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<!-- main webpage for viewing, editing, and deleting song ratings -->
 <?php
 $host = 'localhost';
 $db   = 'music_db';
@@ -44,15 +45,15 @@ session_start();
     <table border="1" class = "song-ratings">
         <thead>
             <tr>
-                <!-- Add your table column names here -->
+                <!-- table column names -->
                 <th>Username</th>
                 <th>Artist</th>
                 <th>Song</th>
                 <th>Rating</th>
-                <!-- ... and so on for each column -->
             </tr>
         </thead>
         <tbody>
+          <!-- query database for current ratings. anyone can view, but update and delete will only be available for the author of the rating-->
             <?php if ($result->num_rows > 0): ?>
                 <?php while($row = $result->fetch_assoc()): ?>
                     <tr>
