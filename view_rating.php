@@ -1,5 +1,6 @@
 <?php
 // Include the database connection file (dbconnection.php)
+session_start();
 include 'dbconnection.php';
 
 // Check if the rating ID is provided as a query parameter
@@ -50,8 +51,14 @@ mysqli_close($db);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>View Rating</title>
+    <div class="user-info">
+      <p>You are logged in as user: <span class="username"><?php echo $_SESSION['username'];?></span></p>
+      <a href="index.html" class="logout-button">Log Out</a>
+    </div>
+
 </head>
 <body>
+
     <a href="ratingsPage.php">Back to ratings page</a>
 </body>
 </html>

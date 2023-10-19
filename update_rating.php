@@ -2,6 +2,7 @@
 // Include the database connection file (dbconnection.php)
 include 'dbconnection.php';
 
+session_start();
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the updated data from the form
@@ -54,6 +55,11 @@ mysqli_close($db);
     <title>Update Rating</title>
 </head>
 <body>
+    <div class="user-info">
+      <p>You are logged in as user: <span class="username"><?php echo $_SESSION['username'];?></span></p>
+      <a href="index.html" class="logout-button">Log Out</a>
+    </div>
+
     <h1>Update Rating</h1>
     <form method="post" action="update_rating.php">
         <input type="hidden" name="rating_id" value="<?php echo htmlspecialchars($_GET['id']); ?>">
