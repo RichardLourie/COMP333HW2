@@ -41,7 +41,7 @@ if (false === $stmt) {
 
 if (mysqli_stmt_execute($stmt)) {
     echo "song add successful!";
-    echo '<br /><a href="ratingsPage.php">Login</a>';
+    echo '<br /><a href="ratingsPage.php">back to ratings</a>';
 } else {
     echo "song add failed";
     echo '<br /><a href="ratingsPage.php">Retry</a>';
