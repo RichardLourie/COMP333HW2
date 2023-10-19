@@ -1,3 +1,4 @@
+<!-- php code to add a song when form filled in on add_song_page -->
 <?php
 
 session_start();
@@ -25,7 +26,7 @@ mysqli_stmt_close($userExistsStmt);
 
 if ($rowCount == 0) {
     echo "Username does not exist in users table!";
-    echo '<br /><a href="index.html">Go Back</a>';
+    echo '<br /><a href="index.html" class="back-link">Go Back</a>';
     exit();
 }
 
@@ -47,7 +48,7 @@ if ($songCount > 0) {
 $insertUserQuery = "INSERT INTO ratings (username, artist, song, rating) VALUES (?, ?, ?, ?)";
 $stmt = mysqli_prepare($db, $insertUserQuery);
 
-// Bind user inputs to the prepared statement
+// Bind user inputs to the prepared statement to avoid sql injection
 mysqli_stmt_bind_param($stmt, "sssi", $username, $artist, $song, $rating);
 
 if (false === $stmt) {
@@ -56,10 +57,10 @@ if (false === $stmt) {
 
 if (mysqli_stmt_execute($stmt)) {
     echo "song add successful!";
-    echo '<br /><a href="ratingsPage.php">back to ratings</a>';
+    echo '<br /><a href="ratingsPage.php" class="back-link">back to ratings</a>';
 } else {
     echo "song add failed";
-    echo '<br /><a href="ratingsPage.php">Retry</a>';
+    echo '<br /><a href="ratingsPage.php" class="back-link">Retry</a>';
 }
 
 ?>
