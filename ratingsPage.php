@@ -64,7 +64,7 @@ session_start();
 
     </table>
 
-    <table border="1">
+    <table border="1" class = "song-ratings">
         <thead>
             <tr>
                 <!-- Add your table column names here -->
