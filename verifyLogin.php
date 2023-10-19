@@ -49,9 +49,9 @@ if ($num > 0) {
 
     if (password_verify($password, $hashedPassword)) {
         // Passwords match, so it's a successful login.
-        echo "Login Success";
-        $_SESSION['username']   = $userid;
-        echo '<br /><a href="ratingsPage.php">Proceed</a>';
+        $_SESSION['username'] = $userid;
+        header("Location: ratingsPage.php");  // Redirect to ratingsPage.php
+        exit;  // It's a good practice to call exit after a header redirection.
     } else {
         // Passwords do not match.
         echo "Wrong User id or password";
