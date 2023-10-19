@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $db = mysqli_connect("localhost","root","","music_db");
 
 if (mysqli_connect_errno()) {
@@ -7,7 +9,7 @@ if (mysqli_connect_errno()) {
   exit();
 }
 // Sanitize user input
-$username = mysqli_real_escape_string($db, $_POST['username']);
+$username = mysqli_real_escape_string($db, $_SESSION['username']);
 $artist = mysqli_real_escape_string($db, $_POST['artist']);
 $song = mysqli_real_escape_string($db, $_POST['song']);
 $rating = (int) $_POST['rating']; 
