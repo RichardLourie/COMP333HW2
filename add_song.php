@@ -29,6 +29,21 @@ if ($rowCount == 0) {
     exit();
 }
 
+// Check if the song by the same artist already exists for the user
+$songExistsQuery = "SELECT song FROM ratings WHERE username = ? AND artist = ? AND song = ?";
+$songExistsStmt = mysqli_prepare($db, $songExistsQuery);
+mysqli_stmt_bind_param($songExistsStmt, "sss", $username, $artist, $song);
+mysqli_stmt_execute($songExistsStmt);
+mysqli_stmt_store_result($songExistsStmt);
+$songCount = mysqli_stmt_num_rows($songExistsStmt);
+mysqli_stmt_close($songExistsStmt);
+
+if ($songCount > 0) {
+    echo "can't add a duplicate!";
+    echo '<br /><a href="ratingsPage.php">Go Back</a>';
+    exit();
+}
+
 $insertUserQuery = "INSERT INTO ratings (username, artist, song, rating) VALUES (?, ?, ?, ?)";
 $stmt = mysqli_prepare($db, $insertUserQuery);
 
