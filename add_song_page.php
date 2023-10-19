@@ -6,6 +6,10 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
+    <div class="user-info">
+      <p>You are logged in as user: <span class="username"><?php echo $_SESSION['username'];?></span></p>
+      <a href="index.html" class="logout-button">Log Out</a>
+    </div>
     <div id="form-container">
       <h1 class="page-title">Add a Song</h1>
       <!-- form inputs passed to  add_song.php to add-->
