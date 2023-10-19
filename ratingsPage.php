@@ -32,7 +32,7 @@ session_start();
 
     <div class="user-info">
       <p>You are logged in as user: <span class="username"><?php echo $_SESSION['username'];?></span></p>
-      <a href="logout.php" class="logout-button">Log Out</a>
+      <a href="index.html" class="logout-button">Log Out</a>
     </div>
 
     <h2 class="ratings-title">Song Ratings</h2>
